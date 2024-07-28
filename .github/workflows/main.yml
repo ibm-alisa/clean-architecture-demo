@@ -1,5 +1,5 @@
 name: Run Post Data PSQL
-run-name: ${{ github.event.inputs.app_name }} | Run Post Data PSQL 
+run-name: ${{ env.APPLICATION_NAME }} | Run Post Data PSQL 
 
 on:
   workflow_dispatch:
