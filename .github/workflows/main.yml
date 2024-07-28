@@ -1,5 +1,5 @@
 name: Run Post Data PSQL
-run-name: ${{ env.APPLICATION_NAME }} | Run Post Data PSQL 
+
 
 on:
   workflow_dispatch:
@@ -35,7 +35,7 @@ env:
   HOSTNAME: 'psql-enterpriseapp-az-asse-dev-001.postgres.database.azure.com'
   DATABASE: ${{ github.event.inputs.db_name }}
   APPLICATION_NAME: ${{ github.event.inputs.app_name }}
-
+run-name: ${{ env.APPLICATION_NAME }} | Run Post Data PSQL 
 jobs:
   TestTest:
     name: Echo Action
