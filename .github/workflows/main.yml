@@ -39,7 +39,7 @@ env:
 jobs:
   TestTest:
     name: Echo Action
-    runs-on: [self]
+    runs-on: ubuntu-latest
     steps:
       - name: "Hello"
         run: |
