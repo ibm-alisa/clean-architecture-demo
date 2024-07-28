@@ -1,0 +1,48 @@
+name: Run Post Data PSQL
+run-name: ${{ github.event.inputs.app_name }} | Run Post Data PSQL 
+
+on:
+  workflow_dispatch:
+    inputs:
+      app_name:
+        description: "Application Name"
+        required: true
+        type: choice
+        options: 
+          - smis
+          - sma
+          - cdl
+          - ccis
+          - cso
+      db_name:
+        description: "Database Name"
+        required: true
+        default: "scorpdb_test_migrate-01"
+      env:
+        description: "Environment"
+        required: true
+        default: "dev"
+        type: choice
+        options: 
+          - dev
+          - sit
+          - uat
+          - preprod
+          - prod
+
+env:
+  MIGRATE_PATH: 'migrate-data/1_postgres'
+  HOSTNAME: 'psql-enterpriseapp-az-asse-dev-001.postgres.database.azure.com'
+  DATABASE: ${{ github.event.inputs.db_name }}
+  APPLICATION_NAME: ${{ github.event.inputs.app_name }}
+
+jobs:
+  TestTest:
+    name: Echo Action
+    runs-on: [self]
+    steps:
+      - name: "Hello"
+        run: |
+          echo "Hello World ${{ env.HOSTNAME }} ${{ env.MIGRATE_PATH }} | ${{ env.HOSTNAME }} | ${{ env.DATABASE }} | ${{ env.APPLICATION_NAME }}"
+        
+  
